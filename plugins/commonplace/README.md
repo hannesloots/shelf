@@ -84,8 +84,7 @@ See `skills/commonplace/references/cli.md`.
 
 ## Design
 
-See `docs/design.md` for the decisions and the evidence behind them, and
-`docs/research/` for the surveys this was built from.
+See `docs/design.md` for the decisions and the evidence behind them.
 
 ## Licence
 

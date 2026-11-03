@@ -77,5 +77,5 @@ so the schema loads automatically.
 Memory pages default to `confidentiality: personal`. `commonplace export` withholds
 confidential and privileged pages. Never paste memory pages into prompts for
 third-party services. If the user shares the commonplace with someone else (a
-family member's comparison, a colleague's project), keep their material in a
+another person's comparison, a colleague's project), keep their material in a
 separate commonplace; commonplaces are cheap.
