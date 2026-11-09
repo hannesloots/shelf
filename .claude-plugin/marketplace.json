@@ -4,14 +4,13 @@
     "name": "shelf"
   },
   "metadata": {
-    "description": "Built Claude plugins (binaries included). Sources live in their own repositories.",
-    "pluginRoot": "./plugins"
+    "description": "Built agent plugins (binaries included). Sources live in their own repositories."
   },
   "plugins": [
     {
       "name": "commonplace",
       "source": "./plugins/commonplace",
-      "description": "A cited markdown research wiki and second brain that Claude maintains while it works: immutable sources, page-anchored text layers, verbatim-quote citations verified by the bundled commonplace tool, PARA organisation, graph analysis, persona reviews, and packs for enterprise architecture, legal matters (jurisdiction profiles), comparisons and study.",
+      "description": "A cited markdown research wiki and second brain that your coding agent maintains while it works: immutable sources, page-anchored text layers, verbatim-quote citations verified by the bundled commonplace tool, PARA organisation, graph analysis, persona reviews, and packs for enterprise architecture, legal matters (jurisdiction profiles), comparisons and study.",
       "version": "0.6.0",
       "category": "productivity",
       "keywords": [
