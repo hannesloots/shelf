@@ -29,6 +29,7 @@ works, plus the Rust tool that keeps it honest.
 skills/commonplace/        the distributable skill (SKILL.md, references, templates, packs, scripts, bin)
 crates/commonplace-core    Rust library: frontmatter, links, citations, lint, index, search, query, graph
 crates/commonplace-cli     the `commonplace` binary
+plugin.json          portable plugin manifest (Copilot CLI, Codex, other agent-plugin hosts)
 .claude-plugin/      plugin + marketplace manifests (install the repo as a Claude Code plugin)
 hooks/               Stop hook that runs lint/cite verify inside a commonplace
 fixtures/demo  a small commonplace that must lint clean (CI)
@@ -52,6 +53,26 @@ Claude Desktop / Cowork: Customize → Plugins → "+" next to Personal plugins 
 Add marketplace → `hannesloots/shelf` → Install. Or upload
 `commonplace-plugin.zip` from the [releases](https://github.com/hannesloots/commonplace/releases) page.
 
+GitHub Copilot CLI:
+
+```
+copilot plugin marketplace add hannesloots/shelf
+copilot plugin install commonplace@shelf
+```
+
+OpenAI Codex: `codex plugin marketplace add hannesloots/shelf`, then install
+`commonplace` from the plugin list.
+
+Other agents that read skills and `AGENTS.md`: unzip
+`commonplace-skill-desktop.zip` from the releases page into the agent's skills
+folder (for example `~/.agents/skills/`). On Windows without `sh`, the skill
+runs the tool through `scripts/commonplace.ps1`.
+
+The Stop hook (lint and citation checks before the agent finishes) is a POSIX
+shell script for Claude Code; Codex runs it only after you trust it, and only
+where `sh` exists. Everywhere else the skill's finishing rule asks the agent to
+run the same checks.
+
 Then in any folder: "set up a commonplace for my research on X". The skill runs
 `commonplace init`, and the folder gets `AGENTS.md` (the schema), `CLAUDE.md`, and
 the tool-owned `.commonplace/`. Updates: `/plugin update commonplace`.
@@ -67,6 +88,14 @@ cargo test && sh scripts/dev/make-fixture.sh
 ```
 
 Binaries for other targets come from the release workflow (`git tag v0.1.0 && git push --tags`).
+Its last job pushes the built plugin into the `shelf` marketplace. If that push
+fails, or to republish a release, run the workflow by hand with the tag
+(`gh workflow run release.yml -f tag=v0.6.0`, or Actions → release → Run
+workflow); it downloads the plugin zip from the release and skips the build.
+To publish by hand: unzip `commonplace-plugin.zip` into `plugins/commonplace/`
+in a shelf checkout, delete `skills/commonplace/bin/.gitignore` there, set the
+version in `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json`,
+commit and push.
 
 ## Using the tool directly
 

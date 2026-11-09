@@ -1,13 +1,21 @@
 {
   "name": "shelf",
-  "interface": { "displayName": "shelf" },
+  "interface": {
+    "displayName": "shelf"
+  },
   "plugins": [
     {
       "name": "commonplace",
-      "source": { "source": "local", "path": "./plugins/commonplace" },
-      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "source": {
+        "source": "local",
+        "path": "./plugins/commonplace"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
       "category": "Productivity",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "description": "A cited markdown research wiki and second brain that your coding agent maintains while it works: immutable sources, page-anchored text layers, verbatim-quote citations verified by the bundled commonplace tool, PARA organisation, graph analysis, persona reviews, and packs for enterprise architecture, legal matters (jurisdiction profiles), comparisons and study.",
       "homepage": "https://github.com/hannesloots/commonplace"
     }
